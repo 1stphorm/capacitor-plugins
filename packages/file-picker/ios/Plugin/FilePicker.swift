@@ -40,7 +40,7 @@ import MobileCoreServices
 
     public func openImagePicker(multiple: Bool, skipTranscoding: Bool) {
         DispatchQueue.main.async {
-            if #available(iOS 14, *) {
+            if #available(iOS 18, *) {
                 var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                 configuration.selectionLimit = multiple ? 0 : 1
                 configuration.filter = .images
@@ -61,7 +61,7 @@ import MobileCoreServices
 
     public func openMediaPicker(multiple: Bool, skipTranscoding: Bool) {
         DispatchQueue.main.async {
-            if #available(iOS 14, *) {
+            if #available(iOS 18, *) {
                 var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                 configuration.selectionLimit = multiple ? 0 : 1
                 configuration.preferredAssetRepresentationMode = skipTranscoding ? .current : .automatic
@@ -81,7 +81,7 @@ import MobileCoreServices
 
     public func openVideoPicker(multiple: Bool, skipTranscoding: Bool) {
         DispatchQueue.main.async {
-            if #available(iOS 14, *) {
+            if #available(iOS 18, *) {
                 var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                 configuration.selectionLimit = multiple ? 0 : 1
                 configuration.filter = .videos
@@ -279,7 +279,7 @@ extension FilePicker: UIImagePickerControllerDelegate, UINavigationControllerDel
     }
 }
 
-@available(iOS 14, *)
+@available(iOS 18, *)
 extension FilePicker: PHPickerViewControllerDelegate {
     public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismissViewController(picker)
